@@ -1,2 +1,2 @@
 # music-mode-helper
-personal project for showing information about muscial keys and modes
+personal project for showing information about musical keys and modes
