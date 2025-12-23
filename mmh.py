@@ -22,38 +22,25 @@ def get_modal_offset(mode: str) -> int:
         print(f"invalid mode supplied: {mode}")
         sys.exit(1)
 
-def build_key_dict(root: str) -> List[Tuple[str, str, str]]:
+def build_key_info(root: str) -> List[Tuple[str, str, str]]:
     result: List[Tuple[str, str, str]] = []
-    note_index = get_note_offset(root)
-    modal_index = 0 
+    running_note = get_note_offset(root)
 
-    i = 0
-
-    while i < len(IONIAN_STEPS):
-        note = NOTES[note_index] 
-        chord = CHORDS[modal_index]
-        mode = MODES[modal_index]
-
-        result.append((note, chord, mode))
+    for step, mode, chord in zip(IONIAN_STEPS, MODES, CHORDS):
+        result.append((NOTES[running_note], chord, mode))
+        running_note = (running_note + step) % len(NOTES)
         
-        modal_index += 1
-        modal_index = (modal_index) % len(MODES)
-        next_step = IONIAN_STEPS[modal_index]
-        note_index = (note_index + next_step) % len(NOTES)
-       
-        i += 1
-
     return result
 
 def main():
     if len(sys.argv) != 2:
-        print("Please provide a note: python3 main.py <note>")
+        print("Please provide a note: python3 mmh.py <note>")
         sys.exit(1)
 
     key = sys.argv[1]
     print(f"Key: {key} Ionian")
  
-    key_data = build_key_dict(key)
+    key_data = build_key_info(key)
     print(tabulate(key_data, headers=["Note","Chord","Mode"], tablefmt="github"))
     #pprint.pp(key_data)
 
