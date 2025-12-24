@@ -42,7 +42,6 @@ def main():
  
     key_data = build_key_info(key)
     print(tabulate(key_data, headers=["Note","Chord","Mode"], tablefmt="github"))
-    #pprint.pp(key_data)
 
 if __name__ == "__main__":
     main()
