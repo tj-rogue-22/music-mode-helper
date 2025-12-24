@@ -1,23 +1,22 @@
-# music-mode-helper
+`# music-mode-helper
 a small personal project for showing information about musical keys and modes
 
-Features
+## Features
 
 * build a 7-degree scale from a root note (A..G#)
 * pure core function (easy to unit test)
 * uses list/tuple/zip for clear iteration
 * table output via tabulate
 
-### Quick start
+## Quick start
 
 #### Requirements:
 
 * Python 3.9+
-* tabulate for table output: ```pip install tabulate```
+* tabulate for table output: `pip install tabulate`
 
 #### Run:
-* python script:
-    ```python3 mmh.py C```
+* python script: `python3 mmh.py C`
 
 #### Example output:
 
@@ -38,7 +37,7 @@ Features
     * inclusion of type hints
 
 
-### Further delopment
+### Further development
 
     * show borrowable chords from parallel minor key
     * add internal software tests
