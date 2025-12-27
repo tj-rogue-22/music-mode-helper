@@ -1,4 +1,4 @@
-`# music-mode-helper
+# music-mode-helper
 a small personal project for showing information about musical keys and modes
 
 ## Features
